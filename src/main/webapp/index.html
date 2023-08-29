@@ -7,9 +7,27 @@
 <body>
 	<h2>Hello 我是 JSP</h2>
 
-	<form method="post" action="lesson2/encoding">
-		<input name="xxx" value="我是中文"> <input name="ooo"
-			value="我也是中文"> <input type="submit" />
+	<form method="post" action="lesson2/encoding" name="f1">
+		<input name="xxx" value="我是中文">
+		<input name="ooo" value="我也是中文">
+		<input type="submit" />
 	</form>
+	<button onclick="dynamicParam()">click me</button>
+
 </body>
+<script>
+	function dynamicParam() {
+		// let form = document.forms[0];
+		let form = document.forms['f1'];
+
+		let input = document.createElement('input');
+		input.setAttribute('type', 'hidden');
+		input.name = 'qoo';
+		input.value = 'Q';
+
+		form.appendChild(input);
+		form.submit();
+	}
+
+</script>
 </html>
